@@ -3,15 +3,21 @@ import Topbar from "./Components/topbar/Topbar";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import Setting from "./pages/setting/Setting";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import AuthTopbar from "./Components/topbar/AuthTopbar";
 
 function App() {
   return (
     <div className="App">
-      <Topbar />
+      <AuthTopbar/>
+      {/* <Topbar /> */}
       {/* <Home /> */}
       {/* <Single /> */}
       {/* <Write/> */}
-      <Setting />
+      {/* <Setting /> */}
+      <Login />
+      {/* <Register /> */}
     </div>
   );
 }

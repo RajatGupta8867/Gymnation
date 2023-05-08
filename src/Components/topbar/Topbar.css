@@ -50,3 +50,10 @@
   color: #666;
   cursor: pointer;
 }
+.auth-topbar-button{
+  border: none;
+  background-color: rgb(255, 152, 152);
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+}
