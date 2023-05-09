@@ -1,5 +1,6 @@
 import React from "react";
 import "./Topbar.css";
+import { Link } from "react-router-dom";
 export default function Topbar() {
   return (
     <div className="top">
@@ -11,7 +12,9 @@ export default function Topbar() {
       </div>
       <div className="top-center">
         <ul className="top-list">
-          <li className="top-list-item">HOME</li>
+          <li className="top-list-item">
+          <Link to={"/home"}>HOME</Link>
+          </li>
           <li className="top-list-item">ABOUT</li>
           <li className="top-list-item">CONTACT </li>
           <li className="top-list-item">WRITE </li>

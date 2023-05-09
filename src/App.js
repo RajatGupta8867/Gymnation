@@ -6,18 +6,23 @@ import Setting from "./pages/setting/Setting";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import AuthTopbar from "./Components/topbar/AuthTopbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <AuthTopbar/>
-      {/* <Topbar /> */}
-      {/* <Home /> */}
-      {/* <Single /> */}
-      {/* <Write/> */}
-      {/* <Setting /> */}
-      <Login />
-      {/* <Register /> */}
+      <BrowserRouter>
+        {/* <Topbar /> */}
+        <AuthTopbar/>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/write" element={<Write />} />
+          <Route path="/profile" element={<Single />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

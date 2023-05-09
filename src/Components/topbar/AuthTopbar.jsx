@@ -1,5 +1,6 @@
 import React from "react";
 import "./Topbar.css";
+import Typewriter from "typewriter-effect";
 export default function AuthTopbar() {
   return (
     <div className="top">
@@ -9,7 +10,9 @@ export default function AuthTopbar() {
         <i className="top-icon fa-brands fa-github"></i>
         <i className=" top-icon fa-brands fa-instagram"></i>
       </div>
-      <div style={{ flex: "5" }}></div>
+      <div className="top-center">
+        <h1 className="topbar-title">Title</h1>
+      </div>
       <div
         className="top-right"
         style={{ justifyContent: "end", margin: "0 20px" }}
