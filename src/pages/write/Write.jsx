@@ -3,7 +3,7 @@ import "./Write.css";
 export default function Write() {
   return (
     <div className="write">
-        <img src="https://thumbs.dreamstime.com/b/tiger-wild-winter-nature-amur-tiger-running-snow-action-wildlife-scene-danger-animal-cold-winter-tajga-russ-84783074.jpg" alt="" className="write-image"/>
+        <img src="./assets/GymLogo.png" alt="" className="write-image"/>
       <form className="write-form">
         <div className="write-form-group">
           <label htmlFor="file-input">

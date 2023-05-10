@@ -1,0 +1,16 @@
+.gallery-title {
+    margin-top: 20px;
+  text-align: center;
+  font-family: "Lora", serif;
+  font-size: 40px;
+}
+.gallery-images {
+  flex-wrap: wrap;
+}
+.gallery-image {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: auto;
+  margin: 10px;
+}

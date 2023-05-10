@@ -1,0 +1,19 @@
+.strip {
+  background-color: tomato;
+  color: aliceblue;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.strip-contact {
+  flex: 2;
+  text-align: center;
+}
+.strip-timing {
+  flex: 2;
+  text-align: center;
+}
+.strip-logo{
+    margin-left: 2px 0px;
+    font-size: 13px;
+}

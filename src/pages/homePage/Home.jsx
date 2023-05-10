@@ -1,17 +1,17 @@
 import React from "react";
 import "./Home.css";
-import Header from "../../Components/header/Header";
+import Hero from "../../Components/hero/Hero";
 import Sidebar from "../../Components/sidebar/Sidebar";
-import Posts from "../../Components/posts/Posts";
+import Body from "../../Components/body/Body";
 export default function Home() {
   return (
     <>
-      <Header />
-      <div className="home">
+      <Hero />
+      <Body />
+      {/* <div className="home">
         <Posts />
         <Sidebar />
-      </div>
-      ;
+      </div> */}
     </>
   );
 }
