@@ -23,11 +23,6 @@ export default function AuthTopbar() {
         >
           Login/Signup
         </button>
-        <img
-          className="top-image"
-          src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-614810.jpg&fm=jpg"
-          alt="face"
-        ></img>
       </div>
     </div>
   );

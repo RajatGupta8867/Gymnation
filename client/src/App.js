@@ -17,19 +17,97 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Strip />
-        <Topbar />
-        {/* <AuthTopbar/> */}
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/membership" element={<Membership />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/write" element={<Write />} />
-          <Route path="/profile" element={<Single />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route
+            path="/login"
+            element={
+              <>
+                <AuthTopbar />
+                <Login />
+              </>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <>
+                <AuthTopbar />
+                <Register />
+              </>
+            }
+          />
+
+          <Route
+            path="/home"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <Home />
+              </>
+            }
+          />
+          <Route
+            path="/membership"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <Membership />
+              </>
+            }
+          />
+          <Route
+            path="/write"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <Write />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <About />
+              </>
+            }
+          />
+          <Route
+            path="/setting"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <Single />
+                <Setting />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <Single />
+              </>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <>
+                <Strip />
+                <Topbar />
+                <Gallery />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Body.css";
 import Card from "../card/Card";
+
 export default function Body() {
   return (
     <div className="body">

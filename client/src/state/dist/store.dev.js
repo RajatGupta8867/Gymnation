@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var store = (0, _toolkit.configureStore)({
   reducer: {
-    user: _userSlice["default"]
+    checkUser: _userSlice["default"]
   }
 });
 exports.store = store;

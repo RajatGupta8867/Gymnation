@@ -65,9 +65,16 @@
   color: white;
 }
 .topbar-link {
-text-decoration: none;
+  text-decoration: none;
 }
 
 .topbar-link:hover {
-  border-bottom:2px solid tomato;
+  border-bottom: 2px solid tomato;
+}
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+}
+.user-name {
+  margin-left: 15px;
 }
