@@ -10,6 +10,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Strip from "./Components/strip/Strip";
 import Footer from "./Components/footer/Footer";
 import Gallery from "./pages/gallery/Gallery";
+import Membership from "./pages/membership/Membership";
+import About from "./pages/about/About";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/about" element={<About />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/write" element={<Write />} />
           <Route path="/profile" element={<Single />} />

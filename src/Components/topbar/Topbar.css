@@ -64,3 +64,10 @@
   border-radius: 20px;
   color: white;
 }
+.topbar-link {
+text-decoration: none;
+}
+
+.topbar-link:hover {
+  border-bottom:2px solid tomato;
+}

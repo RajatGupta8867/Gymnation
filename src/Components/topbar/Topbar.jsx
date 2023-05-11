@@ -13,12 +13,21 @@ export default function Topbar() {
       <div className="top-center">
         <ul className="top-list">
           <li className="top-list-item">
-          <Link to={"/home"}>HOME</Link>
+            <Link className="topbar-link" to={"/home"}>HOME</Link>
           </li>
-          <li className="top-list-item">ABOUT</li>
-          <li className="top-list-item">CONTACT </li>
-          <li className="top-list-item">WRITE </li>
-          <li className="top-list-item">GALLERY</li>
+          <li className="top-list-item">
+            <Link className="topbar-link" to={"/about"}>ABOUT</Link>
+          </li>
+          <li className="top-list-item">
+            <Link className="topbar-link" to={"/write"}>WRITE US</Link>{" "}
+          </li>
+          <li className="top-list-item">
+            <Link className="topbar-link" to={"/gallery"}>GALLERY</Link>
+          </li>
+          <li className="top-list-item">
+            <Link className="topbar-link" to={"/membership"}>MEMBERSHIP</Link>
+
+          </li>
         </ul>
       </div>
       <div className="top-right">

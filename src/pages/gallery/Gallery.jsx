@@ -3,7 +3,7 @@ import "./Gallery.css";
 export default function Gallery() {
   const getPictures = () => {
     let pics = [];
-    for (let i = 1; i < 17; i++) {
+    for (let i = 1; i < 19; i++) {
       pics.push(
         <img
           src={`assets/gallery/${i}.jpg`}
@@ -17,7 +17,7 @@ export default function Gallery() {
 
   return (
     <div className="gallery">
-      <h1 className="gallery-title">GYMNATION</h1>
+      <h1 className="gallery-title"><i class="fa-solid fa-dumbbell"></i> GYMNATION</h1>
       <hr/>
       <div className="gallery-images">{getPictures()}</div>
     </div>

@@ -6,6 +6,7 @@
 }
 .gallery-images {
   flex-wrap: wrap;
+  text-align: center;
 }
 .gallery-image {
   border: 1px solid black;
