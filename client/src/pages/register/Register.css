@@ -15,7 +15,7 @@
 }
 .register-wrapper {
   background-color: antiquewhite;
-  padding: 20px 20px;
+  padding: 25px 25px;
   border-radius: 20px;
   width: 60%;
 }
@@ -43,7 +43,7 @@
   border: none;
 }
 .register-button {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
   background-color: white;
@@ -52,7 +52,7 @@
   padding: 10px;
   border-radius: 5px;
 }
-.login-button {
+.login-button-register {
   margin-top: 5px;
   cursor: pointer;
   background-color: white;

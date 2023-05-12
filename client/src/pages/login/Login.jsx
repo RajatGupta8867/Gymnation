@@ -8,7 +8,7 @@ import {
   setUser,
 } from "../../state/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { BeatLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 export default function Login() {
   const loading = useSelector((state) => state.checkUser.loading);
   const [logUser, setLogUser] = useState({ email: "", password: "" });
@@ -42,17 +42,18 @@ export default function Login() {
   const navigate = useNavigate();
   return (
     <div className="login">
-      <div className="half-page-l"></div>
+      <div className="half-page-l">
+        <RingLoader
+          color={"#89551d"}
+          loading={loading}
+          cssOverride={override}
+          size={120}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
       <div className="half-page-r">
         <div className="login-wrapper">
-          <BeatLoader
-            color={"#000"}
-            loading={loading}
-            cssOverride={override}
-            size={20}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
           <span className="login-title">Login</span>
           <hr />
           <form className="login-form" onSubmit={handleSubmit}>
@@ -87,7 +88,7 @@ export default function Login() {
             </button>
             <span className="no-account">Dont have an account..</span>
             <button
-              className="register-button"
+              className="register-button-login"
               onClick={() => navigate("/register")}
             >
               Register

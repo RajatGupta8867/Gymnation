@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setPageType } from "../../state/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading, setPageType } from "../../state/userSlice";
+import { RingLoader } from "react-spinners";
 export default function Register() {
+  const loading=useSelector(state=>state.checkUser.loading);
+  const dispatch=useDispatch();
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -15,9 +23,10 @@ export default function Register() {
 
   const createUser = async (e) => {
     // e.preventDefault();
+    dispatch(setLoading(true));
     console.log(user);
+    dispatch(setLoading(false));
   };
-  const dispatch = useDispatch();
   dispatch(setPageType("register"));
   const navigate = useNavigate();
 
@@ -109,13 +118,22 @@ export default function Register() {
               Register
             </button>
             <span className="have-account">Already have an account..</span>
-            <button className="login-button" onClick={() => navigate("/login")}>
+            <button className="login-button-register" onClick={() => navigate("/login")}>
               Login
             </button>
           </form>
         </div>
       </div>
-      <div className="half-page-r"></div>
+      <div className="half-page-r">
+        <RingLoader
+          color={"#89551d"}
+          loading={loading}
+          cssOverride={override}
+          size={220}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
     </div>
   );
 }
