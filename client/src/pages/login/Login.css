@@ -1,21 +1,29 @@
 .login {
   height: calc(100vh - 50px);
   display: flex;
-  flex-direction: column;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://img.freepik.com/premium-psd/paper-coffee-cups-mockup_37789-701.jpg?w=996");
+    url("./login_back.jpg");
   justify-content: center;
   align-items: center;
   background-size: cover;
+}
+.half-page-l {
+  flex: 1;
+}
+.half-page-r {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 .login-title {
   font-size: 50px;
 }
 .login-wrapper {
   background-color: antiquewhite;
+  width: 60%;
   padding: 40px 40px;
   border-radius: 20px;
 }
@@ -23,16 +31,24 @@
   text-align: center;
 }
 .login-form {
-  width: 50vw;
   display: flex;
   flex-direction: column;
+}
+.login-form > input {
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
 }
 .login-form > label {
   margin: 10px 0;
 }
-.login-form > input {
-  padding: 10px;
-  border: none;
+.login-form > input:focus {
+  outline: none;
+  border-bottom: 3px solid rgb(71, 86, 255);
+
+}
+.login-form > input:hover {
+  border-bottom: 2px solid tomato;
 }
 .login-button {
   margin-top: 20px;

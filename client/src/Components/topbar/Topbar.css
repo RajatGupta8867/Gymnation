@@ -26,8 +26,8 @@
 .topbar-title {
   text-align: center;
   font-weight: 700;
-  font-size: 40px;
-  font-family: "Dancing Script", cursive;
+  font-size:25px;
+  font-family: "Lora", serif;
 }
 .top-image {
   width: 40px;
@@ -58,8 +58,9 @@
   cursor: pointer;
 }
 .auth-topbar-button {
+  cursor: pointer;
   border: none;
-  background-color: rgb(255, 152, 152);
+  background-color: tomato;
   padding: 10px;
   border-radius: 20px;
   color: white;

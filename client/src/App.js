@@ -15,7 +15,7 @@ import About from "./pages/about/About";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ boxSizing: "border-box" }}>
       <BrowserRouter>
         <Routes>
           <Route
@@ -43,7 +43,7 @@ function App() {
               <>
                 <Strip />
                 <Topbar />
-                <Home />
+                <Home /> <Footer />
               </>
             }
           />
@@ -53,7 +53,7 @@ function App() {
               <>
                 <Strip />
                 <Topbar />
-                <Membership />
+                <Membership /> <Footer />
               </>
             }
           />
@@ -63,7 +63,7 @@ function App() {
               <>
                 <Strip />
                 <Topbar />
-                <Write />
+                <Write /> <Footer />
               </>
             }
           />
@@ -73,7 +73,7 @@ function App() {
               <>
                 <Strip />
                 <Topbar />
-                <About />
+                <About /> <Footer />
               </>
             }
           />
@@ -84,7 +84,7 @@ function App() {
                 <Strip />
                 <Topbar />
                 <Single />
-                <Setting />
+                <Setting /> <Footer />
               </>
             }
           />
@@ -94,7 +94,7 @@ function App() {
               <>
                 <Strip />
                 <Topbar />
-                <Single />
+                <Single /> <Footer />
               </>
             }
           />
@@ -104,12 +104,11 @@ function App() {
               <>
                 <Strip />
                 <Topbar />
-                <Gallery />
+                <Gallery /> <Footer />
               </>
             }
           />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   );

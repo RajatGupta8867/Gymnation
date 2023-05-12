@@ -3,33 +3,43 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.setToken = exports.setUser = exports.userSlice = void 0;
+exports["default"] = exports.setLoading = exports.setToken = exports.setUser = exports.setPageType = exports.userSlice = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
 var initialState = {
   user: "",
-  token: ""
+  token: "",
+  pageType: "",
+  loading: false
 };
 var userSlice = (0, _toolkit.createSlice)({
   name: "user",
   initialState: initialState,
   reducers: {
     setUser: function setUser(state, action) {
-      // console.log("setting user to ", action.payload);
       state.user = action.payload;
     },
     setToken: function setToken(state, action) {
-      // console.log("setting token to ", action.payload);
       state.token = action.payload;
+    },
+    setPageType: function setPageType(state, action) {
+      state.pageType = action.payload;
+    },
+    setLoading: function setLoading(state, action) {
+      state.loading = action.payload;
     }
   }
 });
 exports.userSlice = userSlice;
 var _userSlice$actions = userSlice.actions,
+    setPageType = _userSlice$actions.setPageType,
     setUser = _userSlice$actions.setUser,
-    setToken = _userSlice$actions.setToken;
+    setToken = _userSlice$actions.setToken,
+    setLoading = _userSlice$actions.setLoading;
+exports.setLoading = setLoading;
 exports.setToken = setToken;
 exports.setUser = setUser;
+exports.setPageType = setPageType;
 var _default = userSlice.reducer;
 exports["default"] = _default;

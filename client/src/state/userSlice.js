@@ -3,21 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: "",
   token: "",
+  pageType: "",
+  loading: false,
 };
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     setUser: (state, action) => {
-      // console.log("setting user to ", action.payload);
       state.user = action.payload;
     },
     setToken: (state, action) => {
-      // console.log("setting token to ", action.payload);
       state.token = action.payload;
+    },
+    setPageType: (state, action) => {
+      state.pageType = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
     },
   },
 });
 
-export const { setUser, setToken } = userSlice.actions;
+export const { setPageType, setUser, setToken, setLoading } = userSlice.actions;
 export default userSlice.reducer;
