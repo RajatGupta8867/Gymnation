@@ -28,6 +28,10 @@ var userSlice = (0, _toolkit.createSlice)({
     },
     setLoading: function setLoading(state, action) {
       state.loading = action.payload;
+    },
+    setLogout: function setLogout(state, action) {
+      state.user = null;
+      state.token = null;
     }
   }
 });

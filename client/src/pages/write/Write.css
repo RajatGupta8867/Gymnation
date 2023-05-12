@@ -42,12 +42,13 @@
   top: 20px;
   right: 50px;
   color: white;
-  background-color: #4bdfb2;
-  padding: 10px;
+  background-color: tomato;
+  padding: 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
 }
 .write-submit:hover {
+  background-color: #4bdfb2;
 }

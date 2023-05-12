@@ -22,6 +22,10 @@ export const userSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setLogout: (state, action) => {
+      state.user = null;
+      state.token = null;
+    },
   },
 });
 
