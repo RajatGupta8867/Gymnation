@@ -3,7 +3,7 @@ import "./Gallery.css";
 export default function Gallery() {
   const getPictures = () => {
     let pics = [];
-    for (let i = 1; i < 19; i++) {
+    for (let i = 1; i < 29; i++) {
       pics.push(
         <img
           src={`assets/gallery/${i}.jpg`}

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.setLoading = exports.setToken = exports.setUser = exports.setPageType = exports.userSlice = void 0;
+exports["default"] = exports.setLogout = exports.setLoading = exports.setToken = exports.setUser = exports.setPageType = exports.userSlice = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
@@ -29,7 +29,7 @@ var userSlice = (0, _toolkit.createSlice)({
     setLoading: function setLoading(state, action) {
       state.loading = action.payload;
     },
-    setLogout: function setLogout(state, action) {
+    setLogout: function setLogout(state) {
       state.user = null;
       state.token = null;
     }
@@ -40,7 +40,9 @@ var _userSlice$actions = userSlice.actions,
     setPageType = _userSlice$actions.setPageType,
     setUser = _userSlice$actions.setUser,
     setToken = _userSlice$actions.setToken,
-    setLoading = _userSlice$actions.setLoading;
+    setLoading = _userSlice$actions.setLoading,
+    setLogout = _userSlice$actions.setLogout;
+exports.setLogout = setLogout;
 exports.setLoading = setLoading;
 exports.setToken = setToken;
 exports.setUser = setUser;

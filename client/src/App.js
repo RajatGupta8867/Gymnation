@@ -6,14 +6,16 @@ import Setting from "./pages/setting/Setting";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import AuthTopbar from "./Components/topbar/AuthTopbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Strip from "./Components/strip/Strip";
 import Footer from "./Components/footer/Footer";
 import Gallery from "./pages/gallery/Gallery";
 import Membership from "./pages/membership/Membership";
 import About from "./pages/about/About";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isAuth = Boolean(useSelector((state) => state.checkUser.token));
   return (
     <div className="App" style={{ boxSizing: "border-box" }}>
       <BrowserRouter>
@@ -40,72 +42,100 @@ function App() {
           <Route
             path="/home"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <Home /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <Home /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/membership"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <Membership /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <Membership /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/write"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <Write /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <Write /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/about"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <About /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <About /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/setting"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <Single />
-                <Setting /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <Single />
+                  <Setting /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/profile"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <Single /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <Single /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
             path="/gallery"
             element={
-              <>
-                <Strip />
-                <Topbar />
-                <Gallery /> <Footer />
-              </>
+              isAuth ? (
+                <>
+                  <Strip />
+                  <Topbar />
+                  <Gallery /> <Footer />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
         </Routes>

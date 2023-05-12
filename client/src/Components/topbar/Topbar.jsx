@@ -1,9 +1,14 @@
 import React from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogout } from "../../state/userSlice";
 export default function Topbar() {
   const user = useSelector((state) => state.checkUser.user);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(setLogout());
+  };
   return (
     <div className="top">
       <div className="top-left">
@@ -21,7 +26,7 @@ export default function Topbar() {
           </li>
           <li className="top-list-item">
             <Link className="topbar-link" to={"/about"}>
-              ABOUT
+              TRAINERS
             </Link>
           </li>
           <li className="top-list-item">
@@ -48,7 +53,12 @@ export default function Topbar() {
             src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-614810.jpg&fm=jpg"
             alt="face"
           ></img>
+
           <span className="user-name">{user.username}</span>
+          <i
+            onClick={logout}
+            class="logout-button fa-solid fa-right-from-bracket"
+          ></i>
         </div>
       </div>
     </div>

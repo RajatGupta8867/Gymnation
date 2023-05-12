@@ -22,12 +22,13 @@ export const userSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
-    setLogout: (state, action) => {
+    setLogout: (state) => {
       state.user = null;
       state.token = null;
     },
   },
 });
 
-export const { setPageType, setUser, setToken, setLoading } = userSlice.actions;
+export const { setPageType, setUser, setToken, setLoading, setLogout } =
+  userSlice.actions;
 export default userSlice.reducer;
