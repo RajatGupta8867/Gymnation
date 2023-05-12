@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setPageType } from "../../state/userSlice";
 import { RingLoader } from "react-spinners";
 export default function Register() {
-  const loading=useSelector(state=>state.checkUser.loading);
-  const dispatch=useDispatch();
+  const loading = useSelector((state) => state.checkUser.loading);
+  const dispatch = useDispatch();
   const override = {
     display: "block",
     margin: "0 auto",
@@ -22,9 +22,21 @@ export default function Register() {
   });
 
   const createUser = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     dispatch(setLoading(true));
-    console.log(user);
+    const response = await fetch("http://localhost:3001/api/user/register", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (data.status === "success") {
+      navigate("/login");
+    } else {
+      console.log("Something went wronge.");
+    }
     dispatch(setLoading(false));
   };
   dispatch(setPageType("register"));
@@ -118,7 +130,10 @@ export default function Register() {
               Register
             </button>
             <span className="have-account">Already have an account..</span>
-            <button className="login-button-register" onClick={() => navigate("/login")}>
+            <button
+              className="login-button-register"
+              onClick={() => navigate("/login")}
+            >
               Login
             </button>
           </form>
