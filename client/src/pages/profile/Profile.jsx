@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Badge from "../../Components/badge/Badge";
+import Modal from "../../Components/modal/Modal";
 export default function Profile() {
+  const [modal, setModal] = useState("block");
   const user = useSelector((state) => state.checkUser.user);
- 
-  const navigate=useNavigate();
+
+  const navigate = useNavigate();
   return (
     <div className="profile">
       <div className="profile-join-text">Your Profile😎</div>
@@ -19,6 +21,9 @@ export default function Profile() {
         <div className="sidebar-item">
           <span className="sidebar-title">{user.name}</span>
           <ul className="sidebar-list">
+            <li className=" sidebar-list-item">
+              <i class="list-icon fa-solid fa-envelope" /> Email : {user.email}
+            </li>
             <li className="sidebar-list-item">
               <i class="list-icon fa-solid fa-briefcase" /> Occupation :{" "}
               {user.occupation}
@@ -27,19 +32,19 @@ export default function Profile() {
               <i class="list-icon fa-solid fa-mountain-sun" /> Location :{" "}
               {user.location}
             </li>
-            <li className=" sidebar-list-item">
-              <i class="list-icon fa-solid fa-envelope" /> Email : {user.email}
-            </li>
           </ul>
         </div>
         <div className="sidebar-item">
-          <span className="sidebar-title">Memberships</span>
+          <span className="sidebar-title">Memberships</span>s
         </div>
         {user.membership.length ? (
           user.membership.map((m) => <Badge m={m} />)
         ) : (
-          <div className="no-membership" onClick={()=>navigate("/membership")}>
-           💲Purchase Membership
+          <div
+            className="no-membership"
+            onClick={() => navigate("/membership")}
+          >
+            💲Purchase Membership
           </div>
         )}
         <div className="sidebar-item">
@@ -54,9 +59,15 @@ export default function Profile() {
           </div>
         </div>
         <div className="profile-title">
-          <div className="profile-update-title">Update your account</div>
+          <div
+            className="profile-update-title"
+            onClick={() => setModal("block")}
+          >
+            Update your account
+          </div>
           <div className="profile-delete-title">Delete your account</div>
         </div>
+        <Modal display={modal} setModal={setModal} />
       </div>
     </div>
   );
