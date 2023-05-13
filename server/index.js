@@ -5,6 +5,7 @@ require("dotenv").config();
 const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoutes = require("./routes/userRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use(morgan("dev"));
 app.use(cors());
 
 app.use("/api/user", userRoutes);
+app.use("/api/payment", paymentRoutes);
 
 const PORT = process.env.MONGO_PORT || 6001;
 mongoose

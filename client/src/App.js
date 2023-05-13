@@ -55,15 +55,15 @@ function App() {
           <Route
             path="/membership"
             element={
-              isAuth ? (
+              // isAuth ? (
                 <>
                   <Strip />
                   <Topbar />
                   <Membership /> <Footer />
                 </>
-              ) : (
-                <Navigate to="/login" />
-              )
+              // ) : (
+              //   <Navigate to="/login" />
+              // )
             }
           />
           <Route
