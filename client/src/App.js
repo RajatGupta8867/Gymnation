@@ -1,8 +1,6 @@
 import Home from "./pages/homePage/Home";
 import Topbar from "./Components/topbar/Topbar";
-import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
-import Setting from "./pages/setting/Setting";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import AuthTopbar from "./Components/topbar/AuthTopbar";
@@ -13,6 +11,7 @@ import Gallery from "./pages/gallery/Gallery";
 import Membership from "./pages/membership/Membership";
 import About from "./pages/about/About";
 import { useSelector } from "react-redux";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   const isAuth = Boolean(useSelector((state) => state.checkUser.token));
@@ -96,28 +95,13 @@ function App() {
             }
           />
           <Route
-            path="/setting"
-            element={
-              isAuth ? (
-                <>
-                  <Strip />
-                  <Topbar />
-                  <Single />
-                  <Setting /> <Footer />
-                </>
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          />
-          <Route
             path="/profile"
             element={
               isAuth ? (
                 <>
                   <Strip />
                   <Topbar />
-                  <Single /> <Footer />
+                  <Profile /> <Footer />
                 </>
               ) : (
                 <Navigate to="/login" />

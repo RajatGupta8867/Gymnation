@@ -26,10 +26,11 @@
 .topbar-title {
   text-align: center;
   font-weight: 700;
-  font-size:25px;
+  font-size: 25px;
   font-family: "Lora", serif;
 }
 .top-image {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -80,14 +81,15 @@
   outline: none;
   background-color: none;
   margin-left: 15px;
+  cursor: pointer;
 }
 
-.logout-button{
+.logout-button {
   cursor: pointer;
   color: tomato;
   margin-left: 10px;
   font-size: 20px;
 }
-.logout-button:hover{
+.logout-button:hover {
   color: black;
 }

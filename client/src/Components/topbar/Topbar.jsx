@@ -1,6 +1,6 @@
 import React from "react";
 import "./Topbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../../state/userSlice";
 export default function Topbar() {
@@ -9,6 +9,7 @@ export default function Topbar() {
   const logout = () => {
     dispatch(setLogout());
   };
+  const navigate = useNavigate();
   return (
     <div className="top">
       <div className="top-left">
@@ -41,7 +42,7 @@ export default function Topbar() {
           </li>
           <li className="top-list-item">
             <Link className="topbar-link" to={"/membership"}>
-              MEMBERSHIP
+              MEMBERSHIPS
             </Link>
           </li>
         </ul>
@@ -49,12 +50,15 @@ export default function Topbar() {
       <div className="top-right">
         <div className="profile-wrapper">
           <img
+            onClick={() => navigate("/profile")}
             className="top-image"
-            src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-614810.jpg&fm=jpg"
+            src="assets/profileM.png"
             alt="face"
           ></img>
 
-          <span className="user-name">{user.username}</span>
+          <span onClick={() => navigate("/profile")} className="user-name">
+            {user.username}
+          </span>
           <i
             onClick={logout}
             class="logout-button fa-solid fa-right-from-bracket"
