@@ -28,13 +28,11 @@ export default function Modal({ setModal, display }) {
     });
     const data = await response.json();
     if (data.status === "success") {
-      //   setModal("none");
+        setModal("none");
       dispatch(setUser(data.updatedUser));
-      console.log("UpdatedUser: ", data.updatedUser);
     } else {
       console.log(data);
     }
-    console.log("Change data: ", change);
   };
   return (
     <div className="modal" style={{ display: display }}>

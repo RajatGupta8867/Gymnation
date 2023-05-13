@@ -1,4 +1,5 @@
 const Razorpay = require("razorpay");
+const User = require("./../model/User");
 exports.createMembership = async (req, res) => {
   try {
     const instance = new Razorpay({
@@ -37,6 +38,25 @@ exports.cardDetail = async (req, res) => {
         message: "Something wronge occured",
       });
     res.status(200).json({ status: "success", data: order });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.addMembership = async (req, res) => {
+  try {
+    const { type } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user,
+      {
+        "$push": { "membership": type } 
+      },
+      { new: true }
+    );
+    res.status(200).json({
+      status: "success",
+      updatedUser,
+    });
   } catch (error) {
     console.log(error);
   }

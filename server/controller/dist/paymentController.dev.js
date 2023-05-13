@@ -2,6 +2,8 @@
 
 var Razorpay = require("razorpay");
 
+var User = require("./../model/User");
+
 exports.createMembership = function _callee(req, res) {
   var instance, _req$body, order_id, amount, payment_Capture, currency, options, order;
 
@@ -104,4 +106,43 @@ exports.cardDetail = function _callee2(req, res) {
       }
     }
   }, null, null, [[0, 11]]);
+};
+
+exports.addMembership = function _callee3(req, res) {
+  var type, updatedUser;
+  return regeneratorRuntime.async(function _callee3$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          type = req.body.type;
+          _context3.next = 4;
+          return regeneratorRuntime.awrap(User.findByIdAndUpdate(req.user, {
+            "$push": {
+              "membership": type
+            }
+          }, {
+            "new": true
+          }));
+
+        case 4:
+          updatedUser = _context3.sent;
+          res.status(200).json({
+            status: "success",
+            updatedUser: updatedUser
+          });
+          _context3.next = 11;
+          break;
+
+        case 8:
+          _context3.prev = 8;
+          _context3.t0 = _context3["catch"](0);
+          console.log(_context3.t0);
+
+        case 11:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  }, null, null, [[0, 8]]);
 };

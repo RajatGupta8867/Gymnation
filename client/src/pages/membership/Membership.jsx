@@ -1,112 +1,73 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./Membership.css";
+import MemberCard from "./MemberCard";
 export default function Membership() {
-  const loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
-  const handleClick = async (e) => {
-    e.preventDefault();
 
-    // create api integration
-    let orderId =
-      "Order" +
-      Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
-
-    const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
-    );
-    if (!res) {
-      alert("Razorpay SDK failed to load. Are you online?");
-      return;
-    }
-    let paymentOptions = {
-      order_id: orderId,
-      amount: "100" * 100,
-      currency: "INR",
-      payment_capture: 1,
-    };
-
-    let response = await fetch(
-      "http://localhost:3001/api/payment/createMembership",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(paymentOptions),
-      }
-    );
-    const { data } = await response.json();
-    if (!data) {
-      alert("Server Error,Are you online??");
-    } else {
-      let options = {
-        key: process.env.RAZORPAY_KEY_ID,
-        currency: data.currency,
-        amount: data.amount,
-        order_id: data.id,
-        name: "Gymnation Membership ",
-        description: "Membership Transaction",
-        image: "assets/profileM.png",
-        handler: async function (response) {
-          let res = await fetch(
-            "http://localhost:3001/api/payment/cardDetail",
-            {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify({ id: response.razorpay_payment_id }),
-            }
-          );
-          const resData = await res.json();
-          let finalList;
-          if (resData.status === "success") {
-            finalList = {
-              orderId: orderId,
-              payment: resData.data.method,
-              // addressId: newCart.addressId,
-              // shippingPrice: newCart.shippingPrice,
-              // cart: newCart.cart,
-              total: resData.data.amount / 100,
-              status: resData.data.status,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_order_id: response.razorpay_order_id,
-            };
-            console.log(finalList);
-          } else {
-            console.log("Something went very wronge");
-          }
-        },
-        prefill: {
-          email: "hash@gmail.com",
-          contact: 7970716565,
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "rgb(255, 99, 71)",
-        },
-      };
-      let paymentObject = new window.Razorpay(options);
-      paymentObject.open();
-    }
-  };
-
+  const body = [
+    "Core Strength",
+    "Muscular Strength",
+    "Improve body composition",
+    "IncreseFlexiblity",
+    "Increse Cardiorespiratory endurance",
+  ];
+  const yoga = [
+    "A specially constructed dance floor",
+    "Learn dance under best guidance",
+    "Increases your muscle tone and flexibility",
+    "Increses your Stamina",
+    "Increses you body action and performance",
+  ];
+  const dance = [
+    "Reduce anxiety",
+    "Improve quality of life",
+    "Boosts immunity",
+    "Helps with stress relief",
+    "Improves mental health",
+  ];
+  let listFinal;
+  let image;
+  let isMember = false;
+  const user = useSelector((state) => state.checkUser.user);
   return (
-    <div>
-      <button onClick={handleClick}>Click me!</button>
+    <div className="membership">
+      {/* <button onClick={handleClick}>Click me!</button> */}
+      <div className="trainer-join-text">Our Membership Plans🤸‍♂️</div>
+      <div className="membership-wrapper">
+        {["Fitness Training", "Yoga Classes", "Dance Classes"].map(
+          (e, index) => {
+            switch (index) {
+              case 0:
+                isMember = user.membership.includes("body");
+                image =
+                  "https://cdn.lifehack.org/wp-content/uploads/2013/06/bodybuilding-tips.jpg";
+                listFinal = body;
+                break;
+              case 1:
+                isMember = user.membership.includes("yoga");
+                image =
+                  "https://cdn.cdnparenting.com/articles/2019/02/24151535/167027126-H.webp";
+                listFinal = yoga;
+                break;
+              default:
+                isMember = user.membership.includes("dance");
+                image =
+                  "https://images.healthshots.com/healthshots/hi/uploads/2022/07/08171723/Dance-to-lose-weight-1600x900.jpg";
+                listFinal = dance;
+                break;
+            }
+            return (
+              <MemberCard
+                key={index}
+                image={image}
+                Title={e}
+                member={isMember}
+                list={listFinal}
+              />
+            );
+          }
+        )}
+      </div>
     </div>
   );
 }
