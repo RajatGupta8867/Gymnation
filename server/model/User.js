@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     membership: {
-      type: [String],
+      type:[String],
       default: [],
     },
     location: String,

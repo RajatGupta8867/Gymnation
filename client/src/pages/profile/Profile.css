@@ -1,6 +1,7 @@
 .profile {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .profile-title {
   margin-top: 20px;

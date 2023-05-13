@@ -1,19 +1,32 @@
 const User = require("../model/User");
 
 exports.patchUser = async (req, res) => {
-  const { name, occupation, password, location } = req.body;
-  const response = await User.findByIdAndUpdate(
-    req.user,
-    {
-      name,
-      occupation,
-      password,
-      location,
-    },
-    { new: true }
-  );
-  res.status(200).json({
-    status: "success",
-    updatedUser: response,
-  });
+  try {
+    const { name, occupation, currPassword, newPassword, location, username } =
+      req.body;
+    const user = await User.findById(req.user);
+    if (currPassword !== user.password) {
+      return res.status(401).json({
+        status: "failed",
+        message: "Inalid current pasword",
+      });
+    }
+    const response = await User.findByIdAndUpdate(
+      req.user,
+      {
+        username,
+        name,
+        occupation,
+        password: newPassword,
+        location,
+      },
+      { new: true }
+    );
+    res.status(200).json({
+      status: "success",
+      updatedUser: response,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
