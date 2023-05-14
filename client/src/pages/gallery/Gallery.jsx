@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Gallery.css";
 export default function Gallery() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
   const getPictures = () => {
     let pics = [];
     for (let i = 1; i < 29; i++) {

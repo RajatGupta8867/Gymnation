@@ -69,7 +69,7 @@
   align-items: center;
   justify-content: center;
 }
-.footer-social > i {
+.footer-social > a > i {
   color: antiquewhite;
   font-size: 25px;
   padding: 20px;
@@ -82,6 +82,9 @@
 .classes-container > a {
   margin-top: 10px;
 }
-hr{
-    margin-bottom: 20px;
+hr {
+  margin-bottom: 20px;
+}
+.classes-footer{
+  margin-top: 15px;
 }

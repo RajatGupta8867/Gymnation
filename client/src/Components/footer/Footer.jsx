@@ -24,19 +24,19 @@ export default function Footer() {
         <hr />
         <div className="classes-container">
           <h3
-            className="footer-text footer-link"
+            className="footer-text classes-footer footer-link"
             onClick={() => navigate("../membership")}
           >
             FITNESS CLASSES →
           </h3>
           <h3
-            className="footer-text footer-link"
+            className="footer-text classes-footer footer-link"
             onClick={() => navigate("../membership")}
           >
             YOGA CLASSES →
           </h3>
           <h3
-            className="footer-text footer-link"
+            className="footer-text classes-footer footer-link"
             onClick={() => navigate("../membership")}
           >
             DANCE CLASSES →
@@ -76,7 +76,7 @@ export default function Footer() {
           <i className="top-icon fa-solid fa-comments"></i>
         </a>
         <a href="https://www.instagram.com/gymnation_bokaro/?hl=en">
-          <i className=" top-icon fa-brands fa-instagram"></i>
+          <i className="top-icon fa-brands fa-instagram"></i>
         </a>
       </div>
     </div>
