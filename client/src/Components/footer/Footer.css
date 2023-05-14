@@ -13,6 +13,7 @@
 .footer-link {
   text-decoration: none;
   color: antiquewhite;
+  cursor: pointer;
 }
 .about-content {
   line-height: 15px;
@@ -20,6 +21,7 @@
   margin-bottom: 20px;
 }
 .btn {
+  cursor: pointer;
   background: none;
   border: 1px whitesmoke solid;
   color: antiquewhite;

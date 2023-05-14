@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Membership.css";
 import MemberCard from "./MemberCard";
+import Message from "../../Components/message/Message";
 export default function Membership() {
-
+  const [message, setMessage] = useState({ status: "failed", message: "" });
   const body = [
     "Core Strength",
     "Muscular Strength",
@@ -31,8 +32,10 @@ export default function Membership() {
   const user = useSelector((state) => state.checkUser.user);
   return (
     <div className="membership">
-      {/* <button onClick={handleClick}>Click me!</button> */}
       <div className="trainer-join-text">Our Membership Plans🤸‍♂️</div>
+      {message.message ? (
+        <Message status={message.status} message={message.message} />
+      ) : null}
       <div className="membership-wrapper">
         {["Fitness Training", "Yoga Classes", "Dance Classes"].map(
           (e, index) => {
@@ -58,6 +61,8 @@ export default function Membership() {
             }
             return (
               <MemberCard
+                message={message}
+                setMessage={setMessage}
                 key={index}
                 image={image}
                 Title={e}

@@ -129,17 +129,22 @@ exports.addMembership = function _callee3(req, res) {
           updatedUser = _context3.sent;
           res.status(200).json({
             status: "success",
+            message: "Membership purchased successfully.",
             updatedUser: updatedUser
           });
-          _context3.next = 11;
+          _context3.next = 12;
           break;
 
         case 8:
           _context3.prev = 8;
           _context3.t0 = _context3["catch"](0);
           console.log(_context3.t0);
+          res.status(500).json({
+            status: "failed",
+            message: "Something went wronge"
+          });
 
-        case 11:
+        case 12:
         case "end":
           return _context3.stop();
       }

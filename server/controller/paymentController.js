@@ -55,9 +55,14 @@ exports.addMembership = async (req, res) => {
     );
     res.status(200).json({
       status: "success",
+      message:"Membership purchased successfully.",
       updatedUser,
     });
   } catch (error) {
     console.log(error);
+    res.status(500).json({
+      status: "failed",
+      message: "Something went wronge"
+    });
   }
 };

@@ -43,17 +43,22 @@ exports.patchUser = function _callee(req, res) {
           response = _context.sent;
           res.status(200).json({
             status: "success",
+            message: "User updated successfully",
             updatedUser: response
           });
-          _context.next = 16;
+          _context.next = 17;
           break;
 
         case 13:
           _context.prev = 13;
           _context.t0 = _context["catch"](0);
           console.log(_context.t0);
+          res.status(500).json({
+            status: "failed",
+            message: "Something went wronge"
+          });
 
-        case 16:
+        case 17:
         case "end":
           return _context.stop();
       }

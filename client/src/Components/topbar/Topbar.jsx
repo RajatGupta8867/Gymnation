@@ -13,10 +13,18 @@ export default function Topbar() {
   return (
     <div className="top">
       <div className="top-left">
-        <i className="top-icon fa-brands fa-facebook"></i>
-        <i className="top-icon fa-brands fa-twitter"></i>
-        <i className="top-icon fa-brands fa-github"></i>
-        <i className=" top-icon fa-brands fa-instagram"></i>
+        <a href="https://www.facebook.com/watch/?v=1143321946303544">
+          <i className="top-icon fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://bharatbz.com/jharkhand/gymnation-540748">
+          <i className="top-icon fa-solid fa-mug-hot"></i>
+        </a>
+        <a href="https://www.top-rated.online/cities/K%C4%81tr%C4%81s/place/p/9266480/GYMNATION8">
+          <i className="top-icon fa-solid fa-comments"></i>
+        </a>
+        <a href="https://www.instagram.com/gymnation_bokaro/?hl=en">
+          <i className=" top-icon fa-brands fa-instagram"></i>
+        </a>
       </div>
       <div className="top-center">
         <ul className="top-list">
@@ -61,7 +69,7 @@ export default function Topbar() {
           </span>
           <i
             onClick={logout}
-            class="logout-button fa-solid fa-right-from-bracket"
+            className="logout-button fa-solid fa-right-from-bracket"
           ></i>
         </div>
       </div>

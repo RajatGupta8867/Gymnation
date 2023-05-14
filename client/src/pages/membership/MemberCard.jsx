@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../state/dist/userSlice.dev";
 
-export default function MemberCard({ image, Title, list, member }) {
+export default function MemberCard({
+  image,
+  Title,
+  list,
+  member,
+  message,
+  setMessage,
+}) {
   const user = useSelector((state) => state.checkUser.user);
   const token = useSelector((state) => state.checkUser.token);
+
   const dispatch = useDispatch();
   const loadScript = (src) => {
     return new Promise((resolve) => {
@@ -20,8 +28,6 @@ export default function MemberCard({ image, Title, list, member }) {
     });
   };
   const initiateTransition = async (type, amount) => {
-    // e.preventDefault();
-    console.log(type, amount);
     // Api integration
     let orderId =
       "Order" +
@@ -53,7 +59,10 @@ export default function MemberCard({ image, Title, list, member }) {
     );
     const { data } = await response.json();
     if (!data) {
-      alert("Server Error,Are you online??");
+      setMessage({ ...message, message: "Server Error,Are you online??" });
+      setTimeout(() => {
+        setMessage({ ...message, message: "" });
+      }, 3000);
     } else {
       let options = {
         key: process.env.RAZORPAY_KEY_ID,
@@ -78,7 +87,7 @@ export default function MemberCard({ image, Title, list, member }) {
 
           // Add the type
           if (resData.status === "success") {
-            console.log("Came to success after fetch");
+            setMessage({ status: "success", message: resData.message });
             const response = await fetch(
               "http://localhost:3001/api/payment/addMembership",
               {
@@ -93,17 +102,30 @@ export default function MemberCard({ image, Title, list, member }) {
             const data = await response.json();
             if (data.status === "success") {
               dispatch(setUser(data.updatedUser));
-              console.log(data);
+              setMessage(data);
+              setTimeout(() => {
+                setMessage({ ...message, message: "" });
+              }, 3000);
             } else {
               console.log(data);
+              setMessage({ status: "failed", message: resData.message });
+              setTimeout(() => {
+                setMessage({ ...message, message: "" });
+              }, 3000);
             }
           } else {
-            console.log("Something went very wronge");
+            setMessage({
+              status: "failed",
+              message: "Something went very wronge",
+            });
+            setTimeout(() => {
+              setMessage({ ...message, message: "" });
+            }, 3000);
           }
         },
         prefill: {
-          email: "hash@gmail.com",
-          contact: 7970716565,
+          email: user.email,
+          contact: 9829384716,
         },
         notes: {
           address: "Razorpay Corporate Office",
@@ -163,7 +185,7 @@ export default function MemberCard({ image, Title, list, member }) {
           <div className="mem-card mem-card-unpurchased mem-card-glow">
             <div className="container">
               <img src={image} alt="" className="mem-body-pic" />
-              <div class="overlay">
+              <div className="overlay">
                 <span className="price">₹{rupee}</span>/month only
               </div>
             </div>

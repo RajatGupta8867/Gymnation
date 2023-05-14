@@ -9,6 +9,7 @@ import {
 } from "../../state/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RingLoader } from "react-spinners";
+import Message from "../../Components/message/Message";
 export default function Login() {
   const loading = useSelector((state) => state.checkUser.loading);
   const [logUser, setLogUser] = useState({ email: "", password: "" });
@@ -19,9 +20,11 @@ export default function Login() {
     margin: "0 auto",
     borderColor: "red",
   };
+  const [message, setMessage] = useState({ status: "failed", message: "" });
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(setLoading(true));
+    setMessage({ ...message, message: "" });
     const response = await fetch("http://localhost:3001/api/user/login", {
       method: "POST",
       body: JSON.stringify(logUser),
@@ -33,9 +36,12 @@ export default function Login() {
     if (data.status === "success") {
       dispatch(setUser(data.user));
       dispatch(setToken(data.token));
-      navigate("/home");
+      setMessage(data);
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
     } else {
-      console.log("Incorrect creds");
+      setMessage(data);
     }
     dispatch(setLoading(false));
   };
@@ -43,6 +49,9 @@ export default function Login() {
   return (
     <div className="login">
       <div className="half-page-l">
+        {message.message ? (
+          <Message status={message.status} message={message.message} />
+        ) : null}
         <RingLoader
           color={"#89551d"}
           loading={loading}

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Write.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import emailjs from "emailjs-com";
+import Message from "../../Components/message/Message";
 export default function Write() {
+  const [message, setMessage] = useState({ status: "failed", message: "" });
   const user = useSelector((state) => state.checkUser.user);
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(e.target);
     emailjs
       .sendForm(
         "gymnationbokaro",
@@ -16,17 +17,32 @@ export default function Write() {
       )
       .then(
         (result) => {
-          alert(
-            "Email sent successfully to the admin. We will contact you asap."
-          );
+          setMessage({
+            status: "success",
+            message:
+              "Email sent successfully to the admin. We will contact you asap.",
+          });
+          setTimeout(() => {
+            setMessage({ ...message, message: "" });
+          }, 3000);
         },
         (error) => {
+          setMessage({
+            status: "failed",
+            message: "Something went wronge. Email not sent.",
+          });
           console.log("Something went wronge", "Error: ", error.message);
+          setTimeout(() => {
+            setMessage({ ...message, message: "" });
+          }, 3000);
         }
       );
   };
   return (
     <div className="write">
+      {message.message ? (
+        <Message status={message.status} message={message.message} />
+      ) : null}
       <img src="./assets/GymLogo.png" alt="" className="write-image" />
       <form className="write-form" onSubmit={sendEmail}>
         <div className="write-form-group">

@@ -10,7 +10,11 @@ exports.getAllUser = async (req, res) => {
       users: allUsers,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({
+      status: "failed",
+      message: "Something went wronge",
+    });
   }
 };
 
@@ -31,19 +35,28 @@ exports.loginUser = async (req, res) => {
     );
     res.status(200).json({
       status: "success",
+      message: "Login Successful",
       user: currUser,
       token: token,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({
+      status: "failed",
+      message: "Something went wronge",
+    });
   }
 };
 
 exports.createUser = async (req, res) => {
   try {
     const newUser = await User.create(req.body);
-    res.status(201).json({ status: "success" });
+    res.status(201).json({ status: "success", message: "New user created" });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({
+      status: "failed",
+      message: "Something went wronge",
+    });
   }
 };

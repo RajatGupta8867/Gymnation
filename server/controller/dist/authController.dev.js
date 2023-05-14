@@ -21,17 +21,19 @@ exports.getAllUser = function _callee(req, res) {
             length: allUsers.length,
             users: allUsers
           });
-          _context.next = 10;
+          _context.next = 11;
           break;
 
         case 7:
           _context.prev = 7;
           _context.t0 = _context["catch"](0);
+          console.log(_context.t0);
           res.status(500).json({
-            error: _context.t0.message
+            status: "failed",
+            message: "Something went wronge"
           });
 
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }
@@ -70,20 +72,23 @@ exports.loginUser = function _callee2(req, res) {
           }, process.env.JWT_SECRET);
           res.status(200).json({
             status: "success",
+            message: "Login Successful",
             user: currUser,
             token: token
           });
-          _context2.next = 13;
+          _context2.next = 14;
           break;
 
         case 10:
           _context2.prev = 10;
           _context2.t0 = _context2["catch"](0);
+          console.log(_context2.t0);
           res.status(500).json({
-            error: _context2.t0.message
+            status: "failed",
+            message: "Something went wronge"
           });
 
-        case 13:
+        case 14:
         case "end":
           return _context2.stop();
       }
@@ -104,19 +109,22 @@ exports.createUser = function _callee3(req, res) {
         case 3:
           newUser = _context3.sent;
           res.status(201).json({
-            status: "success"
+            status: "success",
+            message: "New user created"
           });
-          _context3.next = 10;
+          _context3.next = 11;
           break;
 
         case 7:
           _context3.prev = 7;
           _context3.t0 = _context3["catch"](0);
+          console.log(_context3.t0);
           res.status(500).json({
-            error: _context3.t0.message
+            status: "failed",
+            message: "Something went wronge"
           });
 
-        case 10:
+        case 11:
         case "end":
           return _context3.stop();
       }

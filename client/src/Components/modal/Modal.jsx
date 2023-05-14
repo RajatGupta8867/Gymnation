@@ -41,7 +41,7 @@ export default function Modal({ setModal, display }) {
           <div className="update-top">
             <label>Update Profile :</label>
             <i
-              class="close-button fa-sharp fa-solid fa-circle-xmark"
+              className="close-button fa-sharp fa-solid fa-circle-xmark"
               onClick={(e) => {
                 e.preventDefault();
                 setModal("none");

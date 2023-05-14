@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setPageType } from "../../state/userSlice";
 import { RingLoader } from "react-spinners";
+import Message from "../../Components/message/Message";
 export default function Register() {
   const loading = useSelector((state) => state.checkUser.loading);
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export default function Register() {
     margin: "0 auto",
     borderColor: "red",
   };
+  const [message, setMessage] = useState({ state: "", message: "" });
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -33,9 +35,15 @@ export default function Register() {
     });
     const data = await response.json();
     if (data.status === "success") {
-      navigate("/login");
+      setMessage({
+        status: "success",
+        message: "Account Created Successfully",
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } else {
-      console.log("Something went wronge.");
+      setMessage({ status: "failed", message: "Something went wronge" });
     }
     dispatch(setLoading(false));
   };
@@ -140,6 +148,9 @@ export default function Register() {
         </div>
       </div>
       <div className="half-page-r">
+        {message.message ? (
+          <Message status={message.status} message={message.message} />
+        ) : null}
         <RingLoader
           color={"#89551d"}
           loading={loading}

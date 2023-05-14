@@ -1,6 +1,8 @@
 import React from "react";
 import "./Footer.css";
+import { useNavigate } from "react-router-dom";
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <div className="footer">
       <div className="footer-contents footer-about">
@@ -13,7 +15,7 @@ export default function Footer() {
         <p className="about-content">-Personal Trainer</p>
         <p className="about-content">-Affordable price</p>
         <p className="about-content">-Supervised Diet Plan</p>
-        <button className="btn">
+        <button className="btn" onClick={() => navigate("/membership")}>
           Buy Now <i className="fa-solid fa-caret-right"></i>
         </button>
       </div>
@@ -21,15 +23,24 @@ export default function Footer() {
         <h1 className="footer-heading">Classes</h1>
         <hr />
         <div className="classes-container">
-          <a className="footer-text footer-link" href="asd">
+          <h3
+            className="footer-text footer-link"
+            onClick={() => navigate("../membership")}
+          >
             FITNESS CLASSES →
-          </a>
-          <a className="footer-text footer-link" href="asd">
+          </h3>
+          <h3
+            className="footer-text footer-link"
+            onClick={() => navigate("../membership")}
+          >
             YOGA CLASSES →
-          </a>
-          <a className="footer-text footer-link" href="asd">
+          </h3>
+          <h3
+            className="footer-text footer-link"
+            onClick={() => navigate("../membership")}
+          >
             DANCE CLASSES →
-          </a>
+          </h3>
         </div>
       </div>
       <div className="footer-contents footer-contact">
@@ -46,7 +57,7 @@ export default function Footer() {
           <li className="footer-contact">E-mail: gymnationbokaro@gmail.com</li>
           <li className="footer-contact map-btn">
             <a
-              href="https://www.google.com/maps/dir/23.6724977,86.146599/gymnation/@23.6702798,86.1433313,17z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x39f423c294f4312f:0xf55eb38edaac1899!2m2!1d86.14456!2d23.6683218"
+              href="https://www.google.com/maps/contrib/107896633929044088995/photos/@23.6683218,86.14456,17z/data=!3m1!4b1!4m3!8m2!3m1!1e1"
               className="footer-link"
             >
               Get directions on map →
@@ -55,10 +66,18 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-contents footer-social">
-        <i className="top-icon fa-brands fa-facebook"></i>
-        <i className="top-icon fa-brands fa-twitter"></i>
-        <i className="top-icon fa-brands fa-github"></i>
-        <i className=" top-icon fa-brands fa-instagram"></i>
+      <a href="https://www.facebook.com/watch/?v=1143321946303544">
+          <i className="top-icon fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://bharatbz.com/jharkhand/gymnation-540748">
+          <i className="top-icon fa-solid fa-mug-hot"></i>
+        </a>
+        <a href="https://www.top-rated.online/cities/K%C4%81tr%C4%81s/place/p/9266480/GYMNATION8">
+          <i className="top-icon fa-solid fa-comments"></i>
+        </a>
+        <a href="https://www.instagram.com/gymnation_bokaro/?hl=en">
+          <i className=" top-icon fa-brands fa-instagram"></i>
+        </a>
       </div>
     </div>
   );

@@ -22,20 +22,20 @@ export default function Profile() {
           <span className="sidebar-title">{user.name}</span>
           <ul className="sidebar-list">
             <li className=" sidebar-list-item">
-              <i class="list-icon fa-solid fa-envelope" /> Email : {user.email}
+              <i className="list-icon fa-solid fa-envelope" /> Email : {user.email}
             </li>
             <li className="sidebar-list-item">
-              <i class="list-icon fa-solid fa-briefcase" /> Occupation :{" "}
+              <i className="list-icon fa-solid fa-briefcase" /> Occupation :{" "}
               {user.occupation}
             </li>
             <li className="sidebar-list-item">
-              <i class="list-icon fa-solid fa-mountain-sun" /> Location :{" "}
+              <i className="list-icon fa-solid fa-mountain-sun" /> Location :{" "}
               {user.location}
             </li>
           </ul>
         </div>
         <div className="sidebar-item">
-          <span className="sidebar-title">Memberships</span>s
+          <span className="sidebar-title">Memberships</span>
         </div>
         {user.membership.length ? (
           user.membership.map((m) => <Badge m={m} />)
