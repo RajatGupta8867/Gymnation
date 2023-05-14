@@ -24,6 +24,7 @@ export default function Register() {
   });
 
   const createUser = async (e) => {
+    setMessage({ ...message, message: "" });
     e.preventDefault();
     dispatch(setLoading(true));
     const response = await fetch("http://localhost:3001/api/user/register", {
@@ -43,7 +44,7 @@ export default function Register() {
         navigate("/login");
       }, 2000);
     } else {
-      setMessage({ status: "failed", message: "Something went wronge" });
+      setMessage(data);
     }
     dispatch(setLoading(false));
   };

@@ -53,10 +53,26 @@ exports.createUser = async (req, res) => {
     const newUser = await User.create(req.body);
     res.status(201).json({ status: "success", message: "New user created" });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "failed",
-      message: "Something went wronge",
-    });
+    if (error.name === "ValidationError") {
+      let errors = [];
+      Object.keys(error.errors).forEach((key) => {
+        errors.push(error.errors[key].message);
+      });
+      let sError = errors.join(" ");
+      return res.status(400).json({ status: "failed", message: sError });
+    } else {
+      let error = "Something went very wrong";
+      const userName = await User.findOne({
+        username: req.body.username,
+      });
+      if (userName) {
+        error = "Username already in use";
+      }
+      const email = await User.findOne({ email: req.body.email });
+      if (email) {
+        error = "Email already in use";
+      }
+      res.status(500).json({ status: "failed", message: error });
+    }
   }
 };

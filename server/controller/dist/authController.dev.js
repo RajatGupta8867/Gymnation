@@ -97,7 +97,8 @@ exports.loginUser = function _callee2(req, res) {
 };
 
 exports.createUser = function _callee3(req, res) {
-  var newUser;
+  var newUser, errors, sError, _error, userName, email;
+
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -112,19 +113,60 @@ exports.createUser = function _callee3(req, res) {
             status: "success",
             message: "New user created"
           });
-          _context3.next = 11;
+          _context3.next = 26;
           break;
 
         case 7:
           _context3.prev = 7;
           _context3.t0 = _context3["catch"](0);
-          console.log(_context3.t0);
+
+          if (!(_context3.t0.name === "ValidationError")) {
+            _context3.next = 16;
+            break;
+          }
+
+          errors = [];
+          Object.keys(_context3.t0.errors).forEach(function (key) {
+            errors.push(_context3.t0.errors[key].message);
+          });
+          sError = errors.join(" ");
+          return _context3.abrupt("return", res.status(400).json({
+            status: "failed",
+            message: sError
+          }));
+
+        case 16:
+          _error = "Something went very wrong";
+          _context3.next = 19;
+          return regeneratorRuntime.awrap(User.findOne({
+            username: req.body.username
+          }));
+
+        case 19:
+          userName = _context3.sent;
+
+          if (userName) {
+            _error = "Username already in use";
+          }
+
+          _context3.next = 23;
+          return regeneratorRuntime.awrap(User.findOne({
+            email: req.body.email
+          }));
+
+        case 23:
+          email = _context3.sent;
+
+          if (email) {
+            _error = "Email already in use";
+          }
+
           res.status(500).json({
             status: "failed",
-            message: "Something went wronge"
+            message: _error
           });
 
-        case 11:
+        case 26:
         case "end":
           return _context3.stop();
       }
