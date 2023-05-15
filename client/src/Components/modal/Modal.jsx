@@ -18,7 +18,7 @@ export default function Modal({ setModal, display }) {
   const dispatch = useDispatch();
   const patchAccount = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/user", {
+    const response = await fetch("https://gymnation-server.vercel.app/api/user", {
       method: "PATCH",
       body: JSON.stringify(change),
       headers: {

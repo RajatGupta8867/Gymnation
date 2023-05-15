@@ -28,7 +28,7 @@ export default function Register() {
     setMessage({ ...message, message: "" });
     e.preventDefault();
     dispatch(setLoading(true));
-    const response = await fetch("http://localhost:3001/api/user/register", {
+    const response = await fetch("https://gymnation-server.vercel.app/api/user/register", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {

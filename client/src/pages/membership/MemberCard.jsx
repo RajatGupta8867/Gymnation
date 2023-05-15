@@ -48,7 +48,7 @@ export default function MemberCard({
     };
 
     let response = await fetch(
-      "http://localhost:3001/api/payment/createMembership",
+      "https://gymnation-server.vercel.app/api/payment/createMembership",
       {
         method: "POST",
         headers: {
@@ -74,7 +74,7 @@ export default function MemberCard({
         image: "assets/profileM.png",
         handler: async function (response) {
           let res = await fetch(
-            "http://localhost:3001/api/payment/cardDetail",
+            "https://gymnation-server.vercel.app/api/payment/cardDetail",
             {
               method: "POST",
               headers: {
@@ -89,7 +89,7 @@ export default function MemberCard({
           if (resData.status === "success") {
             setMessage({ status: "success", message: resData.message });
             const response = await fetch(
-              "http://localhost:3001/api/payment/addMembership",
+              "https://gymnation-server.vercel.app/api/payment/addMembership",
               {
                 method: "POST",
                 body: JSON.stringify({ type: type }),
