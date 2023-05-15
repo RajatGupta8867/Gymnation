@@ -21,7 +21,13 @@ exports.getAllUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   try {
     const currUser = await User.findOne({ email: req.body.email });
-    if (!currUser || currUser.password !== req.body.password) {
+    if (!currUser ) {
+      return res.status(404).json({
+        status: "failed",
+        message: "User does not exist. Please Register.",
+      });
+    }
+    if (currUser.password !== req.body.password ) {
       return res.status(404).json({
         status: "failed",
         message: "User details incorrect",

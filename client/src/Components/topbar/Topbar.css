@@ -94,3 +94,46 @@
 .logout-button:hover {
   color: black;
 }
+
+.bread-crum {
+  display: none;
+}
+.top-list-resp {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.top-list-item-resp {
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 40px;
+}
+
+@media screen and (min-width: 990px) {
+  .top-resp {
+    display: none;
+  }
+}
+@media screen and (max-width: 990px) {
+  .bread-crum {
+    display: block;
+  }
+  .profile-wrapper {
+    display: none;
+  }
+  .top-list {
+    display: none;
+  }
+  .resp-top {
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    position: sticky;
+    top: 0;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    z-index: 999;
+  }
+}

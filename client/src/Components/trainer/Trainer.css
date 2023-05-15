@@ -13,3 +13,11 @@
   font-size: 60px;
   color: tomato;
 }
+@media screen and (max-width: 730px) {
+  .trainer-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

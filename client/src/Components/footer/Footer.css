@@ -85,6 +85,23 @@
 hr {
   margin-bottom: 20px;
 }
-.classes-footer{
+.classes-footer {
   margin-top: 15px;
+}
+@media screen and (max-width: 720px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-social {
+    flex-direction: row;
+  }
+  .footer-classes {
+    display: none;
+  }
+  .footer-about {
+    display: none;
+
+  }
 }

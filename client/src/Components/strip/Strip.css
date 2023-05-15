@@ -13,7 +13,17 @@
   flex: 2;
   text-align: center;
 }
-.strip-logo{
-    margin-left: 2px 0px;
-    font-size: 13px;
+.strip-logo {
+  margin-left: 2px 0px;
+  font-size: 13px;
+}
+@media screen and (max-width: 818px) {
+  .strip-timing {
+    display: none;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .strip {
+    font-size: 12px;
+  }
 }

@@ -195,9 +195,9 @@ export default function MemberCard({
               <div className="mem-card-ul">
                 {list.map((e, index) => {
                   return (
-                    <l1 key={index} className="mem-card-li">
+                    <li key={index} className="mem-card-li">
                       {e}
-                    </l1>
+                    </li>
                   );
                 })}
               </div>

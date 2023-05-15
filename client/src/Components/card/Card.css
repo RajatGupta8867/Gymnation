@@ -85,3 +85,11 @@
     ),
     url("body.jpg");
 }
+@media screen and (max-width: 620px) {
+  .card {
+    width: 200px;
+  }
+  .card-heading {
+    font-size: 15px;
+  }
+}

@@ -1,7 +1,7 @@
 .membership {
   display: flex;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   flex-direction: column;
   justify-content: space-around;
 }
@@ -15,6 +15,7 @@
 }
 .membership-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   background-color: rgba(226, 226, 226, 0.285);
   padding: 25px;
@@ -25,7 +26,7 @@
   background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), #89551d);
   border-radius: 20px;
   text-align: center;
-  width: 26%;
+  /* width: 26%; */
   color: bisque;
 }
 .card-content {
@@ -110,8 +111,8 @@ hr {
   /* background: rgb(0, 0, 0); */
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
-  height: 165px;
-  width: 275px;
+  height: inherit;
+  width:100%;
   transition: 0.5s ease;
   color: white;
   font-size: 20px;
@@ -127,4 +128,10 @@ hr {
 .price{
   font-size: 50px;
   color: tomato;
+}
+@media screen and (max-width:860px){
+  .membership-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
 }

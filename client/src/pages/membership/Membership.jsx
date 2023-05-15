@@ -33,6 +33,7 @@ export default function Membership() {
   return (
     <div className="membership">
       <div className="trainer-join-text">Our Membership Plans🤸‍♂️</div>
+      
       {message.message ? (
         <Message status={message.status} message={message.message} />
       ) : null}

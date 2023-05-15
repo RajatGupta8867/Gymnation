@@ -56,8 +56,19 @@ exports.loginUser = function _callee2(req, res) {
         case 3:
           currUser = _context2.sent;
 
-          if (!(!currUser || currUser.password !== req.body.password)) {
+          if (currUser) {
             _context2.next = 6;
+            break;
+          }
+
+          return _context2.abrupt("return", res.status(404).json({
+            status: "failed",
+            message: "User does not exist. Please Register."
+          }));
+
+        case 6:
+          if (!(currUser.password !== req.body.password)) {
+            _context2.next = 8;
             break;
           }
 
@@ -66,7 +77,7 @@ exports.loginUser = function _callee2(req, res) {
             message: "User details incorrect"
           }));
 
-        case 6:
+        case 8:
           token = jwt.sign({
             _id: currUser._id
           }, process.env.JWT_SECRET);
@@ -76,11 +87,11 @@ exports.loginUser = function _callee2(req, res) {
             user: currUser,
             token: token
           });
-          _context2.next = 14;
+          _context2.next = 16;
           break;
 
-        case 10:
-          _context2.prev = 10;
+        case 12:
+          _context2.prev = 12;
           _context2.t0 = _context2["catch"](0);
           console.log(_context2.t0);
           res.status(500).json({
@@ -88,12 +99,12 @@ exports.loginUser = function _callee2(req, res) {
             message: "Something went wronge"
           });
 
-        case 14:
+        case 16:
         case "end":
           return _context2.stop();
       }
     }
-  }, null, null, [[0, 10]]);
+  }, null, null, [[0, 12]]);
 };
 
 exports.createUser = function _callee3(req, res) {
