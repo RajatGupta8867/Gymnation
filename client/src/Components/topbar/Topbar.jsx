@@ -63,7 +63,17 @@ export default function Topbar() {
         </div>
         <div className="top-right">
           <div className="navbar-wrapper">
-            <i class="bread-crum fa-solid fa-bars" onClick={breadcrumClick}></i>
+            {!topList ? (
+              <i
+                class="bread-crum fa-solid fa-bars"
+                onClick={breadcrumClick}
+              ></i>
+            ) : (
+              <i
+                class="bread-crum fa-solid fa-xmark"
+                onClick={breadcrumClick}
+              ></i>
+            )}
           </div>
           <div className="profile-wrapper">
             <img
