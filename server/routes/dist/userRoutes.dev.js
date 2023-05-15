@@ -14,7 +14,7 @@ var _require3 = require("../middleware/verifyToken"),
     verifyToken = _require3.verifyToken;
 
 var router = express.Router();
-router.get("/", getAllUser);
+router.get("/", verifyToken, getAllUser);
 router.patch("/", verifyToken, patchUser);
 router.route("/register").post(createUser);
 router.route("/login").post(loginUser);
