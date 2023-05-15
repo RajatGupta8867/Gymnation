@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
-  width: 100%;
+  /* width: 100%; */
 }
 .footer-heading {
   /* margin-bottom: 10px; */
