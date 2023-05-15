@@ -9,5 +9,17 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "razorpay": "^2.8.6"
-  }
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js",
+    "serv":"node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
