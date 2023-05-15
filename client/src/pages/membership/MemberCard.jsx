@@ -56,7 +56,10 @@ export default function MemberCard({
         },
         body: JSON.stringify(paymentOptions),
       }
-    );
+    ).catch((err) => {
+      setMessage({ status: "failed", message: err.message });
+      return;
+    });
     const { data } = await response.json();
     if (!data) {
       setMessage({ ...message, message: "Server Error,Are you online??" });
@@ -82,7 +85,10 @@ export default function MemberCard({
               },
               body: JSON.stringify({ id: response.razorpay_payment_id }),
             }
-          );
+          ).catch((err) => {
+            setMessage({ status: "failed", message: err.message });
+            return;
+          });
           const resData = await res.json();
 
           // Add the type
@@ -98,7 +104,10 @@ export default function MemberCard({
                   "Content-type": "application/json",
                 },
               }
-            );
+            ).catch((err) => {
+              setMessage({ status: "failed", message: err.message });
+              return;
+            });
             const data = await response.json();
             if (data.status === "success") {
               dispatch(setUser(data.updatedUser));

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import Message from "../../Components/message/Message";
 import AuthModal from "../../Components/authModal/AuthModal";
 export default function Register() {
   const loading = useSelector((state) => state.checkUser.loading);
+  useDispatch(setLoading(false));
   const dispatch = useDispatch();
   const override = {
     display: "block",
@@ -28,12 +29,18 @@ export default function Register() {
     setMessage({ ...message, message: "" });
     e.preventDefault();
     dispatch(setLoading(true));
-    const response = await fetch("https://gymnation-server.vercel.app/api/user/register", {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const response = await fetch(
+      "https://gymnation-server.vercel.app/api/user/register",
+      {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).catch((err) => {
+      setMessage({ status: "failed", message: err.message });
+      return;
     });
     const data = await response.json();
     if (data.status === "success") {
@@ -51,7 +58,6 @@ export default function Register() {
   };
   dispatch(setPageType("register"));
   const navigate = useNavigate();
-
   return (
     <div className="register">
       <div className="half-page-l-r">

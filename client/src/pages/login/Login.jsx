@@ -13,6 +13,7 @@ import Message from "../../Components/message/Message";
 import AuthModal from "../../Components/authModal/AuthModal";
 export default function Login() {
   const loading = useSelector((state) => state.checkUser.loading);
+  useDispatch(setLoading(false));
   const [logUser, setLogUser] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
   dispatch(setPageType("login"));
@@ -26,12 +27,18 @@ export default function Login() {
     e.preventDefault();
     dispatch(setLoading(true));
     setMessage({ ...message, message: "" });
-    const response = await fetch("https://gymnation-server.vercel.app/api/user/login", {
-      method: "POST",
-      body: JSON.stringify(logUser),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const response = await fetch(
+      "https://gymnation-server.vercel.app/api/user/login",
+      {
+        method: "POST",
+        body: JSON.stringify(logUser),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).catch((err) => {
+      setMessage({ status: "failed", message: err.message });
+      return;
     });
     const data = await response.json();
     if (data.status === "success") {

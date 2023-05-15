@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./Modal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../state/dist/userSlice.dev";
+import Message from "../message/Message";
 export default function Modal({ setModal, display }) {
+  const [message, setMessage] = useState({ status: "failed", message: "" });
   const user = useSelector((state) => state.checkUser.user);
   const token = useSelector((state) => state.checkUser.token);
   const [changePassword, setChangePaswsword] = useState(false);
@@ -18,17 +20,23 @@ export default function Modal({ setModal, display }) {
   const dispatch = useDispatch();
   const patchAccount = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://gymnation-server.vercel.app/api/user", {
-      method: "PATCH",
-      body: JSON.stringify(change),
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
-      },
+    const response = await fetch(
+      "https://gymnation-server.vercel.app/api/user",
+      {
+        method: "PATCH",
+        body: JSON.stringify(change),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+      }
+    ).catch((err) => {
+      setMessage({ status: "failed", message: err.message });
+      return;
     });
     const data = await response.json();
     if (data.status === "success") {
-        setModal("none");
+      setModal("none");
       dispatch(setUser(data.updatedUser));
     } else {
       console.log(data);
@@ -36,6 +44,9 @@ export default function Modal({ setModal, display }) {
   };
   return (
     <div className="modal" style={{ display: display }}>
+      {message.message ? (
+        <Message status={message.status} message={message.message} />
+      ) : null}
       <div className="modal-wrapper">
         <form className="profile-form" onSubmit={patchAccount}>
           <div className="update-top">
