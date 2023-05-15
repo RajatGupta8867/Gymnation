@@ -34,19 +34,20 @@
   height: 500px;
   background-size: cover;
 }
-@media screen and (max-width: 500px) {
-  .hero-title-sm {
-    font-size: 10px;
-  }
-  .hero-title-lg {
-    font-size: 40px;
-  }
-}
 @media screen and (max-width: 620px) {
   .hero-title-sm {
     font-size: 15px;
   }
   .hero-title-lg {
     font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .hero-title-sm {
+    font-size: 15px;
+  }
+  .hero-title-lg {
+    font-size: 50px;
   }
 }

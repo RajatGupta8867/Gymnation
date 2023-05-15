@@ -112,6 +112,14 @@
   line-height: 40px;
 }
 
+@media screen and (max-width: 900px) {
+  .top-center {
+    display: none;
+  }
+  .top-left{
+    flex:8
+  }
+}
 @media screen and (min-width: 990px) {
   .top-resp {
     display: none;
