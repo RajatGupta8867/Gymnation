@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setPageType } from "../../state/userSlice";
 import { RingLoader } from "react-spinners";
 import Message from "../../Components/message/Message";
+import AuthModal from "../../Components/authModal/AuthModal";
 export default function Register() {
   const loading = useSelector((state) => state.checkUser.loading);
   const dispatch = useDispatch();
@@ -53,7 +54,10 @@ export default function Register() {
 
   return (
     <div className="register">
-      <div className="half-page-l">
+      <div className="half-page-l-r">
+        {message.message ? (
+          <AuthModal message={message} setMessage={setMessage} />
+        ) : null}
         <div className="register-wrapper">
           <span className="register-title">Register</span>
           <hr />
@@ -148,7 +152,7 @@ export default function Register() {
           </form>
         </div>
       </div>
-      <div className="half-page-r">
+      <div className="half-page-r-r">
         {message.message ? (
           <Message status={message.status} message={message.message} />
         ) : null}

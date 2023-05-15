@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { RingLoader } from "react-spinners";
 import Message from "../../Components/message/Message";
+import AuthModal from "../../Components/authModal/AuthModal";
 export default function Login() {
   const loading = useSelector((state) => state.checkUser.loading);
   const [logUser, setLogUser] = useState({ email: "", password: "" });
@@ -48,7 +49,7 @@ export default function Login() {
   const navigate = useNavigate();
   return (
     <div className="login">
-      <div className="half-page-l">
+      <div className="half-page-l-l">
         {message.message ? (
           <Message status={message.status} message={message.message} />
         ) : null}
@@ -61,7 +62,10 @@ export default function Login() {
           data-testid="loader"
         />
       </div>
-      <div className="half-page-r">
+      <div className="half-page-r-l">
+        {message.message ? (
+          <AuthModal message={message} setMessage={setMessage} />
+        ) : null}
         <div className="login-wrapper">
           <span className="login-title">Login</span>
           <hr />

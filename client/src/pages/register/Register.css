@@ -32,7 +32,6 @@
 .register-form > input:focus {
   outline: none;
   border-bottom: 3px solid rgb(74, 71, 255);
-
 }
 .register-form > input:hover {
   outline: none;
@@ -64,12 +63,20 @@
 .have-account {
   font-size: 14px;
 }
-.half-page-l {
+.half-page-l-r {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.half-page-r {
+.half-page-r-r {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 900px) {
+  .half-page-r-r {
+    display: none !important;
+  }
 }

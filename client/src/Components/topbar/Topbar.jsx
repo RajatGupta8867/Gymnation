@@ -111,6 +111,12 @@ export default function Topbar() {
                 MEMBERSHIPS
               </Link>
             </li>
+            <i
+              onClick={logout}
+              className="logout-button-bc fa-solid fa-right-from-bracket"
+            >
+              Logout
+            </i>
           </ul>
         </div>
       ) : null}

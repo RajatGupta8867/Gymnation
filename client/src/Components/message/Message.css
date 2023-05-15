@@ -10,31 +10,34 @@
 hr {
   margin-top: 2px;
 }
-.messsgae-title {
+.modal-icon {
+  color: aliceblue;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 40px;
 }
-
 
 .message-s > p {
   color: azure;
   font-size: 18px;
 }
-.message-s > i {
-    font-size: 100px;
-    color: green ;
-}
 .message-s {
-    border: 2px solid green;
-    background-color: rgba(117, 249, 91, 0.589);
+  border: 2px solid green;
+  background-color: rgba(117, 249, 91, 0.589);
 }
-
 
 .message-f {
-    border: 2px solid rgb(128, 0, 0);
-    background-color: rgba(249, 91, 91, 0.589);
+  border: 2px solid rgb(128, 0, 0);
+  background-color: rgba(249, 91, 91, 0.589);
 }
-.message-f > i {
-    font-size: 100px;
-    color: rgb(128, 0, 0) ;
+.message-icon-f {
+  font-size: 100px;
+  color: rgb(128, 0, 0);
+}
+.message-icon-s {
+  font-size: 100px;
+  color: green;
 }
 .message-f > p {
   color: azure;

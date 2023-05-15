@@ -10,10 +10,13 @@
   align-items: center;
   background-size: cover;
 }
-.half-page-l {
+.half-page-l-l {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.half-page-r {
+.half-page-r-l {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -72,4 +75,13 @@
 .no-account {
   font-size: 14px;
   /* margin-bottom: 0px; */
+}
+.notfication{
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .half-page-l-l{
+    display: none !important;
+  }
 }
