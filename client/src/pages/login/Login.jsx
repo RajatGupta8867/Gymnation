@@ -74,6 +74,16 @@ export default function Login() {
           <AuthModal message={message} setMessage={setMessage} />
         ) : null}
         <div className="login-wrapper">
+          <div className="loader-above">
+            <RingLoader
+              color={"#89551d"}
+              loading={loading}
+              cssOverride={override}
+              size={120}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
           <span className="login-title">Login</span>
           <hr />
           <form className="login-form" onSubmit={handleSubmit}>

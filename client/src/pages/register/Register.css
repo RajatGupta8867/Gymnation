@@ -51,6 +51,9 @@
   padding: 10px;
   border-radius: 5px;
 }
+.loader-above {
+  display: none;
+}
 .login-button-register {
   margin-top: 5px;
   cursor: pointer;
@@ -76,6 +79,9 @@
   align-items: center;
 }
 @media screen and (max-width: 900px) {
+  .loader-above{
+    display: block;
+  }
   .half-page-r-r {
     display: none !important;
   }

@@ -3,6 +3,7 @@
   color: aliceblue;
   height: 25px;
   display: flex;
+  width: 100%;
   align-items: center;
 }
 .strip-contact {

@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
+  width: 100%;
 }
 .footer-heading {
   /* margin-bottom: 10px; */
@@ -102,6 +103,23 @@ hr {
   }
   .footer-about {
     display: none;
-
+  }
+}
+@media screen and (max-width: 680px) {
+  .ul {
+    font-size: 15px;
+  }
+  .footer-heading {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .ul {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 485px) {
+  .ul {
+    font-size: 10px;
   }
 }

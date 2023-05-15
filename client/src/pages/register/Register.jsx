@@ -65,6 +65,16 @@ export default function Register() {
           <AuthModal message={message} setMessage={setMessage} />
         ) : null}
         <div className="register-wrapper">
+          <div className="loader-above">
+            <RingLoader
+              color={"#89551d"}
+              loading={loading}
+              cssOverride={override}
+              size={120}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
           <span className="register-title">Register</span>
           <hr />
           <form className="register-form" onSubmit={createUser}>

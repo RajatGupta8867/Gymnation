@@ -28,3 +28,16 @@
   color: rgb(87, 198, 77);
   font-size: 60px;
 }
+@media screen and (max-width: 520px) {
+  .gallery-text {
+    font-size: 25px;
+  }
+  
+}
+
+@media screen and (max-width: 420px) {
+  .gallery-text {
+    font-size: 20px;
+  }
+
+}
