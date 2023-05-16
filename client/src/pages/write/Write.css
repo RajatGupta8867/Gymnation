@@ -57,23 +57,15 @@
   background-color: #4bdfb2;
 }
 
-@media screen and (max-width: 700px) {
-  /* .write{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media screen and (max-width: 810px) {
+  .write-form-group {
+    width: 60%;
+    display: block;
   }
-  .write-form {
-    display: flex;
-    flex-direction: column;
-    position: inherit;
-  } */
-
   .write-image {
     display: none;
   }
-  .write-submit {
-    position: static;
+  #text-input {
+    width: 60%;
   }
 }

@@ -28,9 +28,6 @@
     align-items: center;
     gap: 20px;
   }
-  .body-card{
-    
-  }
 }
 @media screen and (max-width:620px) {
   .body-join-text{

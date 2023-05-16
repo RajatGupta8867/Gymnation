@@ -14,7 +14,7 @@ export default function Offer() {
           navigate("/gallery");
         }}
       >
-        Check out our galley here <i class="offer-icon fa-brands fa-envira"></i>
+        Check out our galley here <i className="offer-icon fa-brands fa-envira"></i>
       </div>
     </div>
   );

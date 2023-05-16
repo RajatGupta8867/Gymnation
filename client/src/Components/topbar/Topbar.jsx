@@ -65,12 +65,12 @@ export default function Topbar() {
           <div className="navbar-wrapper">
             {!topList ? (
               <i
-                class="bread-crum fa-solid fa-bars"
+                className="bread-crum fa-solid fa-bars"
                 onClick={breadcrumClick}
               ></i>
             ) : (
               <i
-                class="bread-crum fa-solid fa-xmark"
+                className="bread-crum fa-solid fa-xmark"
                 onClick={breadcrumClick}
               ></i>
             )}

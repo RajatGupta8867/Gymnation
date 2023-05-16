@@ -5,14 +5,14 @@ export default function Message({ status, message }) {
     <>
       {status === "success" ? (
         <div className="message message-s">
-          <i class="modal-icon fa-solid fa-xmark"></i>
+          <i className="modal-icon fa-solid fa-xmark"></i>
           <i className="message-icon-s fa-solid fa-face-smile"></i>
           <hr />
           <p className="message-text">{message}</p>
         </div>
       ) : (
         <div className="message message-f">
-          <i class="modal-icon fa-solid fa-xmark"></i>
+          <i className="modal-icon fa-solid fa-xmark"></i>
           <i className="message-icon-f fa-solid fa-face-sad-tear"></i>
           <hr />
           <p className="message-text">{message}</p>
