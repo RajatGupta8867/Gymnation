@@ -12,7 +12,25 @@
   font-family: "Josefin Sans", sans-serif;
   z-index: 999;
 }
+.top-a {
+  width: 100% !important;
+  height: 50px;
+  background-color: rgb(247, 247, 247);
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 999;
+}
 
+.top-left-a,
+.top-right-a {
+  flex: 3;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .top-left,
 .top-right {
   flex: 3;
@@ -23,7 +41,16 @@
 .top-center {
   flex: 6;
 }
+.top-center-a {
+  flex: 6;
+}
 .topbar-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 25px;
+  font-family: "Lora", serif;
+}
+.topbar-title-a {
   text-align: center;
   font-weight: 700;
   font-size: 25px;
@@ -162,4 +189,10 @@
   .topbar-title {
     font-size: 20px;
   }
+}
+
+@media screen and (max-width: 550px) {
+.top-left-a{
+  display: none;
+}
 }

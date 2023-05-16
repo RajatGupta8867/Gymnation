@@ -13,8 +13,8 @@ export default function AuthTopbar() {
     }
   };
   return (
-    <div className="top">
-      <div className="top-left" style={{ flex: "2" }}>
+    <div className="top-a">
+      <div className="top-left-a" style={{ flex: "2" }}>
         <a href="https://www.facebook.com/watch/?v=1143321946303544">
           <i className="top-icon fa-brands fa-facebook"></i>
         </a>
@@ -28,13 +28,13 @@ export default function AuthTopbar() {
           <i className=" top-icon fa-brands fa-instagram"></i>
         </a>
       </div>
-      <div className="top-center">
-        <h1 className="topbar-title">
+      <div className="top-center-a">
+        <h1 className="topbar-title-a">
           <i className="fa-solid fa-dumbbell"></i> Gymnation
         </h1>
       </div>
       <div
-        className="top-right"
+        className="top-right-a"
         style={{ justifyContent: "end", margin: "0 20px" }}
       >
         <button
